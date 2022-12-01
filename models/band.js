@@ -1,11 +1,5 @@
 // DEPENDENCIES
 const { Sequelize, DataTypes, Model } = require('sequelize')
-const sequelize = new Sequelize({
-    storage: process.env.PG_URI,
-    dialect: 'postgres',
-    username: 'postgres',
-    password: `${process.env.PASS}`
-})
 
 // MODEL
 class Band extends Model{}
