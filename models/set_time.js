@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Set_Time.init({
     set_time_id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       allowNull: false
     },
     event_id: {
