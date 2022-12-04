@@ -19,5 +19,17 @@ events.get('/', async (req, res) => {
     }
 })
 
+// FIND SPECIFIC EVENT BY ID
+events.get('/:id', async (req, res) => {
+    try {
+        const foundEvent = await Event.findOne({
+            where: { event_id: req.params.id }
+        })
+        res.status(200).json(foundEvent)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 // EXPORT
 module.exports = events
