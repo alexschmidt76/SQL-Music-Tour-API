@@ -66,7 +66,7 @@ bands.delete('/:id', async (req, res) => {
             where: { band_id: req.params.id }
         })
         res.status(200).json({
-            message: `Succsessfully deleted ${deletedBands} band(s)`
+            message: `Successfully deleted ${deletedBands} band(s)`
         })
     } catch (error) {
         res.status(500).json(error)

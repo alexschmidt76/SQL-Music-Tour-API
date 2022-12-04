@@ -35,8 +35,22 @@ stages.post('/', async (req, res) => {
     try {
         const newStage = await Stage.create(req.body)
         res.status(200).json({
-            message: 'Succsessfully inserted a new stage',
+            message: 'Successfully inserted a new stage',
             data: newStage
+        })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
+// UPDATE A STAGE
+stages.put('/:id', async (req, res) => {
+    try {
+        const updatedStages = await Stage.update(req.body, {
+            where: { stage_id: req.params.id }
+        })
+        res.status(200).json({
+            message: `Successfully updated ${updatedStages} stage(s)`
         })
     } catch (error) {
         res.status(500).json(error)

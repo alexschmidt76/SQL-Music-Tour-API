@@ -36,7 +36,7 @@ events.post('/', async (req, res) => {
     try {
         const newEvent = await Event.create(req.body)
         res.status(200).json({
-            message: 'Succsessfully inserted a new event',
+            message: 'Successfully inserted a new event',
             data: newEvent
         })
     } catch (error) {
@@ -65,7 +65,7 @@ events.delete('/:id', async (req, res) => {
             where: { event_id: req.params.id }
         })
         res.status(200).json({
-            message: `Succsessfully deleted ${deletedEvents} event(s)`
+            message: `Successfully deleted ${deletedEvents} event(s)`
         })
     } catch (error) {
         res.status(500).json(error)
