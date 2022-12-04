@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     start_time: {
-      type: ataTypes.DATE,
+      type: DataTypes.DATE,
       allowNull: false
     },
     end_time: {
