@@ -6,8 +6,9 @@ const { Band } = db
 // FIND ALL BANDS
 bands.get('/', async (req, res) => {
     try {
-        const foundBands = await Band.findAll()
-        console.log('found all bands')
+        const foundBands = await Band.findAll({
+            order: [ [ 'available_start_time', 'ASC' ] ]
+        })
         res.status(200).json(foundBands)
     } catch (error) {
         console.log('error')
