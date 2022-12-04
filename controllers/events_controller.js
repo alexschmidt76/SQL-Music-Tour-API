@@ -44,5 +44,19 @@ events.post('/', async (req, res) => {
     }
 })
 
+// UPDATE AN EVENT
+events.put('/:id', async (req, res) => {
+    try {
+        const updatedEvents = await Event.update(req.body, {
+            where: { event_id: req.params.id }
+        })
+        res.status(200).json({
+            message: `Successfully updated ${updatedEvents} event(s)`
+        })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 // EXPORT
 module.exports = events
